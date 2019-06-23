@@ -2,6 +2,14 @@ import smtplib
 
 
 def email_func(reusername, subject, body):
+    """
+    author: veenit kumar shukla
+    description: send mail to the render
+    :param reusername:takes the receivers username
+    :param subject: subject of the body
+    :param body: elaboration of the subject
+    :return: confirmation
+    """
     username = "veenitshukla20@gmail.com"
     password = "@@@veenit@@@"
     try:
@@ -17,6 +25,6 @@ def email_func(reusername, subject, body):
             """ % (username, reusername, subject, body)
         server.sendmail(username, reusername, email_text)
         server.close()
-        print("mail send")
+        return print("mail send")
     except:
-        print("something is wrong")
+        return print("something is wrong")

@@ -12,6 +12,13 @@ class EmailModelViewSet(ModelViewSet):
     queryset = EmailModel.objects.all()
 
     def create(self, request):
+        """
+        author: veenit kumar shukla
+        description: saves the data and the calls the email function
+        :param request: self,request
+        :return: response
+        Method Allowed: POST
+        """
         if request.method == "POST":
             EmailModel.objects.create(**request.data)
             email_func(request.data["sender_mail"], request.data["subject"], request.data["body"])
